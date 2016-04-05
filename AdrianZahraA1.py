@@ -1,4 +1,4 @@
-
+"""Adrian Zahra, 21/3/2016, AdrianZahraA1, https://github.com/adrianZahra/CP1404Assignment1.git"""
 print("Items for Hire - by Adrian Zahra")
 
 mylist = []
@@ -29,7 +29,7 @@ while user_input != "Q":
                 print(thing[0:3])
 
     elif user_input == "R":
-        print("this is for RRRRRRRRRRRR")
+        print("this is for R")
 
     elif user_input == "A":
         list_place_1 = str(input("Enter the name of the item: "))
