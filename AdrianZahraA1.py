@@ -17,28 +17,47 @@ in_file.close()
 
 user_input = str(input("Menu: \n(L)ist all items \n(H)ire an item \n(R)eturn an item \n(A)dd new item to stock \n(Q)uit")).upper()
 
+
+
 while user_input != "Q":
     if user_input == "L":
-        for thing in mylist:
-            print(thing[0:3])
+        STARTING_ITEM_NUMBER = -1
+        for list_print_1 in mylist:
+            if len(list_print_1[3]) == 3:
+                STARTING_ITEM_NUMBER += 1
+                #print(STARTING_ITEM_NUMBER, "=", list_print_1[0:4], "*")
+                print("{0} = {1} = ${2} *".format(STARTING_ITEM_NUMBER, list_print_1[0:2], list_print_1[2]))
+            else:
+                STARTING_ITEM_NUMBER += 1
+                print("{0} = {1} = ${2}".format(STARTING_ITEM_NUMBER, list_print_1[0:2], list_print_1[2]))
+
 
     elif user_input == "H":
+        STARTING_ITEM_NUMBER = -1
         print("These are the items currently in stock")
-        for thing in mylist:
-            if len(thing[3]) != 3 :
-                print(thing[0:3])
+        for list_print_2 in mylist:
+            if len(list_print_2[3]) != 3 :
+                STARTING_ITEM_NUMBER += 1
+                print("{0} = {1} = ${2}".format(STARTING_ITEM_NUMBER, list_print_2[0:2], list_print_2[2]))
 
     elif user_input == "R":
         print("this is for R")
 
     elif user_input == "A":
-        list_place_1 = str(input("Enter the name of the item: "))
-        list_place_2 = str(input("Enter a description of the item"))
-        list_place_3 = str(input("Enter the price of the item"))
-        list_place_4 = str(input("Enter the items rental status"))
-        mylist.append((list_place_1, list_place_2, list_place_3, list_place_4))
-        for thing in mylist:
-            print(thing[0:3])
+        STARTING_ITEM_NUMBER = -1
+        input_name = str(input("Item Name: "))
+        input_description = str(input("Description: "))
+        input_price = str(input("Price per day: $"))
+        input_hire_status = "in"
+        mylist.append((input_name, input_description, input_price, input_hire_status))
+        for list_print_3 in mylist:
+            if len(list_print_3[3]) == 3:
+                STARTING_ITEM_NUMBER += 1
+                #print(STARTING_ITEM_NUMBER, "=", list_print_1[0:4], "*")
+                print("{0} = {1} = ${2} *".format(STARTING_ITEM_NUMBER, list_print_3[0:2], list_print_3[2]))
+            else:
+                STARTING_ITEM_NUMBER += 1
+                print("{0} = {1} = ${2}".format(STARTING_ITEM_NUMBER, list_print_3[0:2], list_print_3[2]))
 
     else:
         print("Invalid")
